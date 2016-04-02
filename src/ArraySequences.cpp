@@ -32,6 +32,8 @@ Difficulty : Medium
 #include <math.h>
 #include<malloc.h>
 int * find_sequences(int *arr, int len){
+	if (len == 0 || len < 3)
+		return NULL;
 	//Return final array which has 6indexes [AP1_S,AP1_E,AP2_S,AP2_E,GP1_S,GP2_E]
 	int i = 0, j = 0;
 	int *seq_ind = (int *)malloc(6 * sizeof(int));

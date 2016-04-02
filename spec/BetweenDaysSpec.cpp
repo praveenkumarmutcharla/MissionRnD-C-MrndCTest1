@@ -58,8 +58,8 @@ namespace spec
 
 	
 		
-		[TestMethod, Timeout(2000)]
-		void Sample2_BetweenDays()
+		//[TestMethod, Timeout(2000)]
+		/*void Sample2_BetweenDays()
 		{
 			int dates[2][8] = { { 0, 2, 0, 4, 2, 0, 1, 6 }, { 0, 4, 0, 4, 2, 0, 1, 6 } };
 
@@ -71,7 +71,7 @@ namespace spec
 
 			int days = between_days(date1head, date2head);
 			Assert::AreEqual(1, days, L"Date between 2nd April and 4th April failed", 1, 2);
-		};
+		};*/
 		
 	};
 }
