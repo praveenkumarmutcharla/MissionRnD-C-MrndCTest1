@@ -30,8 +30,82 @@ Difficulty : Medium
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-
+#include<malloc.h>
 int * find_sequences(int *arr, int len){
 	//Return final array which has 6indexes [AP1_S,AP1_E,AP2_S,AP2_E,GP1_S,GP2_E]
-	return NULL;
+	int i = 0, j = 0;
+	int *seq_ind = (int *)malloc(6 * sizeof(int));
+	for (i = 0; i < len; )
+	{
+			if (arr[i + 1] - arr[i] == arr[i + 2] - arr[i - 1])
+			{
+				seq_ind[j] = i;
+				j++;
+				for (int k = i + 1; k < len;)
+				{
+					if (arr[k + 1] - arr[k] == arr[k + 2] - arr[k - 1])
+					{
+						k++;
+						i++;
+					}
+					else
+					{
+						seq_ind[j] = i;
+						break;
+					}
+				}
+			}
+		
+		else
+		{
+			if (i == 0)
+			{
+				seq_ind[j] = i;
+				for (int k = i; k < len;)
+				{
+					if (arr[k] != 0 && arr[k - 1] != 0)
+					{
+						if (arr[k + 1] / arr[k] == arr[k + 2] / arr[k - 1])
+						{
+							k++;
+							i++;
+						}
+					}
+					else
+					{
+						seq_ind[j] = i;
+						i++;
+						j++;
+						break;
+					}
+				}
+			}
+			else
+			{
+				i = i + 1;
+				seq_ind[j] = i;
+				for (int k = i; k < len;)
+				{
+					if (arr[k] != 0 && arr[k - 1] != 0)
+					{
+						if (arr[k + 1] / arr[k] == arr[k + 2] / arr[k - 1])
+						{
+							k++;
+							i++;
+						}
+					}
+					else
+					{
+						seq_ind[j] = i;
+						j++;
+						i++;
+						break;
+					}
+				}
+
+			}
+		}
+
+	}
+	return seq_ind;
 }
